@@ -24,4 +24,5 @@ test("Verifying the type of locators", async ({page})=>{
     const Productnames:Locator = page.locator("//tr[@class='product-name']/td/a");
     const Productnameslist:string[]= await Productnames.allTextContents();
     console.log("Products added to compare list are: " + Productnameslist);
+    await page.screenshot({ path: 'test-results/screenshot.png' });
 })
