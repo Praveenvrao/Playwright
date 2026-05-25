@@ -15,4 +15,19 @@ test("Verifying the CSS Locator", async ({page})=>{
     console.log("Search result is: "+ Searchresulttext);
     await page.screenshot({path: 'test-results/screenshot.png'});
 
+}) 
+
+test("Verifying CSS Locators in cricbuzz", async ({page})=>{
+    await page.goto("https://www.cricbuzz.com/");
+    const Schedule: Locator = page.getByText('Schedule').first();
+    await Schedule.click();
+    await page.screenshot({path: 'test-results/screenshots/schedule.png'});
+    const T20Leages: Locator = page.getByRole('link', {name :'T20 Leagues'}).first();
+    await T20Leages.click();
+    await page.screenshot({path: 'test-results/screenshots/t20leagues.png'});
+    const T20Blast: Locator = page.locator("(//a[contains(@title,'T20 Blast 2026')][normalize-space()='T20 Blast 2026'])[2]");
+    await expect(T20Blast).toBeVisible();
+    await T20Blast.click();
+    await page.screenshot({path: 'test-results/screenshots/t20blast2026.png'});
+
 })
