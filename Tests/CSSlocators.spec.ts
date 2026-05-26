@@ -11,7 +11,7 @@ test("Verifying the CSS Locator", async ({page})=>{
     const Searchbutton2:Locator = page.locator("input[value='Search']").first(); //tagname[attributename='attributevalue']
     await Searchbutton2.click();
     const Searchresult:Locator = page.locator("strong.result"); //tagname.classname
-    const Searchresulttext:string = await Searchresult.textContent();
+    const Searchresulttext:any = await Searchresult.textContent();
     console.log("Search result is: "+ Searchresulttext);
     await page.screenshot({path: 'test-results/screenshot.png'});
 
