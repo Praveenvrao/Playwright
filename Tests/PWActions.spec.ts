@@ -23,6 +23,12 @@ test.only("Verify Playwright Actions", async ({page})=>{
     await Male_Gender.check();
     await page.waitForTimeout(2000);
     await page.screenshot({path: 'test-results/screenshots/PWActions_Radiobutton.png'});
+    const Mondaycheck: Locator = page.getByLabel("Monday");
+    await expect(Mondaycheck).toBeVisible();
+    await expect(Mondaycheck).toBeEnabled();
+    await Mondaycheck.check();
+    await page.waitForTimeout(2000);
+    await page.screenshot({path: 'test-results/screenshots/PWActions_Checkbox.png'});
 
     
     
